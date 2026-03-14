@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dynamic Redirect</title>
+    <script>
+        window.onload = function () {
+            // Access the Storyline player
+            var player = parent.GetPlayer();
+
+            // Get the ScoreboardURL variable
+            var url = player.GetVar("ScoreboardURL");
+
+            // Log the URL for debugging
+            console.log("Redirecting to:", url);
+
+            // Redirect to the URL if it exists
+            if (url) {
+                window.location.href = url;
+            } else {
+                console.error("ScoreboardURL is undefined or empty.");
+                document.body.innerHTML = "<h1>Error: No URL provided</h1>";
+            }
+        };
+    </script>
+</head>
+<body>
+</body>
+</html>
